@@ -1,5 +1,7 @@
+# runs on pycharm only !!
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
+
 
 def fir_filter_diagram(coefficients):
     plt.figure(figsize=(16, 6))
@@ -91,9 +93,9 @@ def iir_filter_diagram(coefficients1, coefficients2):
 
     block_start = start_y1 - middle_spacing / 2 + 0.1
     # Draw arrow and label for x(n):
-    plt.annotate('', xy=(start_x1-0.5, 2.8), xytext=(start_x1, 2.8),
-                 arrowprops=dict(arrowstyle=' <-', color='black', lw=1.5))
-    plt.text(start_x1-1, 2.8, r'$x(n)$', color='black', va='center', ha='center', fontsize=15)
+    plt.annotate('', xy=(block_start, 2.6), xytext=(start_x1, 2.6),
+                 arrowprops=dict(arrowstyle='<-', color='black', lw=1.5))
+    plt.text(start_x1 - middle_spacing / 1.5, 2.6, r'$x(n)$', color='black', va='center', ha='center', fontsize=15)
     # Draw plus block:
     rectangle_plus = patches.Rectangle((8.0, 2.6), 0.5, 0.2, fill=True, color='blue')
     plt.gca().add_patch(rectangle_plus)
@@ -102,8 +104,6 @@ def iir_filter_diagram(coefficients1, coefficients2):
     plt.text(17, 2.7, r'$y(n)$', color='k', va='bottom', ha='center', fontsize=15)
     # Draw a line to y(n):
     plt.annotate('', xy=(8.5, 2.8), xytext=(16.5, 2.8), arrowprops=dict(arrowstyle='<-', color='black'))
-    # left side blocks:
-
     for i in range(len(coefficients1)):
         block_y = start_y1 - i * (block_height1 + spacing)
         if i != len(coefficients1) - 1:
@@ -118,9 +118,6 @@ def iir_filter_diagram(coefficients1, coefficients2):
         arrow_end = arrow_start + spacing
         plt.annotate('', xy=(start_x1, arrow_start), xytext=(start_x1, arrow_end),
                      arrowprops=dict(arrowstyle='->', color='black', lw=1.5))
-        if i == 0:
-            plt.annotate('', xy=(start_x1, 2.8), xytext=(start_x1, arrow_start),
-                         arrowprops=dict(arrowstyle='-', color='black', lw=1.5))
         # Draw circles below each arrow
         middle = (arrow_end + arrow_start) / 2
         circle_x = 2 * start_x1
@@ -143,7 +140,6 @@ def iir_filter_diagram(coefficients1, coefficients2):
     else:
         block_height2 = 0.4
         start_y2 = 2
-    # right side blocks:
     for j in range(len(coefficients2)):
         block_y = start_y2 - j * (block_height2 + spacing)
         if j != len(coefficients2) - 1:
@@ -158,9 +154,6 @@ def iir_filter_diagram(coefficients1, coefficients2):
         arrow_end = arrow_start + spacing
         plt.annotate('', xy=(start_x2, arrow_start), xytext=(start_x2, arrow_end),
                      arrowprops=dict(arrowstyle='->', color='black', lw=1.5))
-        if j == 0:
-            plt.annotate('', xy=(start_x2, 2.8), xytext=(start_x2, arrow_start),
-                         arrowprops=dict(arrowstyle='-', color='black', lw=1.5))
         # Draw circles below each arrow
         middle = (arrow_end + arrow_start) / 2
         circle_x = 11
@@ -197,10 +190,11 @@ coefficient1 = []
 coefficient2 = []
 # Iterate through the numbers and format them as strings with one decimal place
 for num1 in numbers1:
-    coefficient1.append(f'{float(num1):.5f}')
+    coefficient1.append(f'{float(num1):.1f}')
 for num2 in numbers2:
-    coefficient2.append(f'{float(num2):.5f}')
+    coefficient2.append(f'{float(num2):.1f}')
 if len(coefficient2) == 0:
     fir_filter_diagram(coefficient1)
 else:
     iir_filter_diagram(coefficient1, coefficient2)
+
