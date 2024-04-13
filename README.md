@@ -1,20 +1,37 @@
-# Filter Diagram Generator
+# FIR and IIR Filter Diagrams
 
-This repository contains a Python script that generates visual diagrams for Finite Impulse Response (FIR) and Infinite Impulse Response (IIR) filter structures using the `matplotlib` library. The script takes user-defined coefficients for the filters and produces graphical representations of their structures.
+This Python script generates diagrams for FIR (Finite Impulse Response) and IIR (Infinite Impulse Response) filters using Matplotlib. The diagrams illustrate the signal flow and processing steps of these filters.
 
-## Features
+---
 
-- Generates clear and illustrative diagrams of FIR and IIR filter structures.
-- Customizable coefficients for both filters.
-- Utilizes the `matplotlib` library for graphical visualization.
+**Features:**
+- Generates diagrams for FIR and IIR filters.
+- Visualizes filter coefficients, signal flow, and processing steps.
+- Customizable block sizes, spacing, and colors for visualization.
 
-## Getting Started
+---
 
-To get started, follow these steps:
+**Components:**
+1. **Python Script (`FilterDiagrams.py`):**
+   - Generates diagrams for FIR and IIR filters based on input coefficients.
+   - Uses Matplotlib to create visual representations of filter processing.
 
-1. Clone this repository to your local machine.
-2. Make sure you have Python installed (version 3.6 or higher).
-3. Install the required dependencies by running:
+---
 
-   ```bash
-   pip install matplotlib
+**Running the Application:**
+1. Run the Python script `FilterDiagrams.py`.
+2. Enter coefficients for the filter arrays when prompted.
+3. The script generates and displays the corresponding FIR or IIR filter diagram.
+
+---
+
+**Example:**
+Suppose you enter the following coefficients:
+- For FIR filter: `0.5 0.8 0.3 0.1`
+- For IIR filter: `0.6 0.4 0.7`
+
+The script will generate and display the diagrams for the FIR and IIR filters accordingly.
+![Image Alt Text](https://github.com/Emelloul98/IIR_FILTER_GUI/blob/main/Example.png)
+---
+
+
