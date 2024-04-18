@@ -28,8 +28,7 @@ This Python script generates diagrams for FIR (Finite Impulse Response) and IIR 
 **Example:**
 Suppose you enter the following coefficients:
 - For FIR filter: `0.5 0.2 0.3 0.6 0.4 0.8`
-- For IIR filter: `0.2 0.5 0.4 0.3 0.6 0.2׳
-
+- For IIR filter: `0.2 0.5 0.4 0.3 0.6 0.2`
 The script will generate and display the diagrams for the FIR and IIR filters accordingly.
 ![Image Alt Text](https://github.com/Emelloul98/IIR_FILTER_GUI/blob/main/Example.png)
 ---
